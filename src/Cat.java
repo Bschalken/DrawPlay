@@ -20,12 +20,20 @@ public class Cat {
 	private static final int MOUTH_X = HEAD_DIMENSION/5 * 2 - 3;
 	private static final int MOUTH_Y = HEAD_DIMENSION/5 * 3;
 	
+	private static final int EAR_SIZE = HEAD_DIMENSION/ 4;
+	
 	// draw will render the Cat on the Graphics object
 	public void draw(Graphics g, int catX, int catY)
 	{
 		Graphics2D g2 = (Graphics2D) g;
-		int x=catX;
-		int y=catY;
+		int x=catX + MOUTH_X;
+		int y=catY + MOUTH_Y;
+		g2.setColor(Color.red);
+		g2.fillOval(x - 30, y - 60, EAR_SIZE, EAR_SIZE);
+		g2.fillOval(x + 30, y - 60, EAR_SIZE, EAR_SIZE);
+		g2.setColor(Color.black);
+		x = catX;
+		y = catY;
 		// Draw the head
 		g2.setColor(Color.black);
 		g2.fillOval(x, y, HEAD_DIMENSION, HEAD_DIMENSION);
@@ -45,6 +53,9 @@ public class Cat {
 		// Draw whiskers
 		g2.drawLine(x+75, y, x-50, y);
 		g2.drawLine(x+75, y+10, x-50, y+10);
+		// Draw ears
+		
+		
 		// Meow text appears below cat head, +10 places below 
 		// so it doesn't overlap the drawing
 		g2.drawString("Meow, I'm a cat", catX, catY+HEAD_DIMENSION+10);	
