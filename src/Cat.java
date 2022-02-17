@@ -18,7 +18,11 @@ public class Cat {
 	private static final int MOUTH_WIDTH = HEAD_DIMENSION/4;
 	// mouth starts about 40% from left edge of head
 	private static final int MOUTH_X = HEAD_DIMENSION/5 * 2 - 3;
-	private static final int MOUTH_Y = HEAD_DIMENSION/5 * 3;
+	private static final int MOUTH_Y = HEAD_DIMENSION/5 * 3 + 10;
+	
+	private static final int NOSE_X = MOUTH_X;
+	private static final int NOSE_Y = MOUTH_Y  - 20;
+	private static final int NOSE_SIZE = 15;
 	
 	private static final int EAR_SIZE = HEAD_DIMENSION/ 4;
 	
@@ -29,8 +33,8 @@ public class Cat {
 		int x=catX + MOUTH_X;
 		int y=catY + MOUTH_Y;
 		g2.setColor(Color.red);
-		g2.fillOval(x - 30, y - 60, EAR_SIZE, EAR_SIZE);
-		g2.fillOval(x + 30, y - 60, EAR_SIZE, EAR_SIZE);
+		g2.fillOval(x - 30, y - 70, EAR_SIZE, EAR_SIZE);
+		g2.fillOval(x + 30, y - 70, EAR_SIZE, EAR_SIZE);
 		g2.setColor(Color.black);
 		x = catX;
 		y = catY;
@@ -49,6 +53,7 @@ public class Cat {
 		x = catX + MOUTH_X;
 		y = catY + MOUTH_Y;
 		g2.fillOval(x, y, MOUTH_WIDTH, MOUTH_HEIGHT);
+		g2.fillOval(x + 5, y - 22, NOSE_SIZE, NOSE_SIZE);
 		g2.setColor(Color.black);
 		// Draw whiskers
 		g2.drawLine(x+75, y, x-50, y);
